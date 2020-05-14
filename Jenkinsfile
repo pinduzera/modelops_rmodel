@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage('Check Data') {
         steps {
-          sh 'script --vanilla table_check.R'
+          sh 'Rscript --vanilla table_check.R'
             }
           }
       stage('Stage 2') {
