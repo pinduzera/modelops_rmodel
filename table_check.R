@@ -1,7 +1,7 @@
 library('swat')
 
-conn <- CAS(#'pdcesx16144.exnet.sas.com', port=8777,
-            'localhost',
+conn <- CAS('pdcesx16144.exnet.sas.com', port=8777,
+            # 'localhost',
             caslib = 'casuser', username = 'sasdemo01',
             password = 'Orion123', protocol = "http")
 
