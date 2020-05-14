@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_2 http://www.dmg.org/pmml/v4-2/pmml-4-2.xsd">
+ <Header copyright="Copyright (c) 2020 edhell" description="Generalized Linear Regression Model">
+  <Extension name="user" value="edhell" extender="SoftwareAG PMML Generator"/>
+  <Application name="SoftwareAG PMML Generator" version="2.3.1"/>
+  <Timestamp>2020-05-14 21:10:11</Timestamp>
+ </Header>
+ <DataDictionary numberOfFields="9">
+  <DataField name="BAD" optype="continuous" dataType="double"/>
+  <DataField name="LOAN" optype="continuous" dataType="double"/>
+  <DataField name="JOB" optype="categorical" dataType="string">
+   <Value value=""/>
+   <Value value="Mgr"/>
+   <Value value="Office"/>
+   <Value value="Other"/>
+   <Value value="ProfExe"/>
+   <Value value="Sales"/>
+   <Value value="Self"/>
+  </DataField>
+  <DataField name="DEROG" optype="continuous" dataType="double"/>
+  <DataField name="DELINQ" optype="continuous" dataType="double"/>
+  <DataField name="CLAGE" optype="continuous" dataType="double"/>
+  <DataField name="NINQ" optype="continuous" dataType="double"/>
+  <DataField name="CLNO" optype="continuous" dataType="double"/>
+  <DataField name="DEBTINC" optype="continuous" dataType="double"/>
+ </DataDictionary>
+ <GeneralRegressionModel modelName="r_logistic" modelType="generalizedLinear" functionName="regression" algorithmName="glm" distribution="binomial" linkFunction="logit">
+  <MiningSchema>
+   <MiningField name="BAD" usageType="predicted" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="LOAN" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="JOB" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="DEROG" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="DELINQ" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="CLAGE" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="NINQ" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="CLNO" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="DEBTINC" usageType="active" invalidValueTreatment="returnInvalid"/>
+  </MiningSchema>
+  <Output>
+   <OutputField name="Predicted_BAD" feature="predictedValue" optype="continuous" dataType="double"/>
+  </Output>
+  <ParameterList>
+   <Parameter name="p0" label="(Intercept)"/>
+   <Parameter name="p1" label="LOAN"/>
+   <Parameter name="p2" label="JOBMgr"/>
+   <Parameter name="p3" label="JOBOffice"/>
+   <Parameter name="p4" label="JOBOther"/>
+   <Parameter name="p5" label="JOBProfExe"/>
+   <Parameter name="p6" label="JOBSales"/>
+   <Parameter name="p7" label="JOBSelf"/>
+   <Parameter name="p8" label="DEROG"/>
+   <Parameter name="p9" label="DELINQ"/>
+   <Parameter name="p10" label="CLAGE"/>
+   <Parameter name="p11" label="NINQ"/>
+   <Parameter name="p12" label="CLNO"/>
+   <Parameter name="p13" label="DEBTINC"/>
+  </ParameterList>
+  <FactorList>
+   <Predictor name="JOB"/>
+  </FactorList>
+  <CovariateList>
+   <Predictor name="LOAN"/>
+   <Predictor name="DEROG"/>
+   <Predictor name="DELINQ"/>
+   <Predictor name="CLAGE"/>
+   <Predictor name="NINQ"/>
+   <Predictor name="CLNO"/>
+   <Predictor name="DEBTINC"/>
+  </CovariateList>
+  <PPMatrix>
+   <PPCell value="1" predictorName="LOAN" parameterName="p1"/>
+   <PPCell value="Mgr" predictorName="JOB" parameterName="p2"/>
+   <PPCell value="Office" predictorName="JOB" parameterName="p3"/>
+   <PPCell value="Other" predictorName="JOB" parameterName="p4"/>
+   <PPCell value="ProfExe" predictorName="JOB" parameterName="p5"/>
+   <PPCell value="Sales" predictorName="JOB" parameterName="p6"/>
+   <PPCell value="Self" predictorName="JOB" parameterName="p7"/>
+   <PPCell value="1" predictorName="DEROG" parameterName="p8"/>
+   <PPCell value="1" predictorName="DELINQ" parameterName="p9"/>
+   <PPCell value="1" predictorName="CLAGE" parameterName="p10"/>
+   <PPCell value="1" predictorName="NINQ" parameterName="p11"/>
+   <PPCell value="1" predictorName="CLNO" parameterName="p12"/>
+   <PPCell value="1" predictorName="DEBTINC" parameterName="p13"/>
+  </PPMatrix>
+  <ParamMatrix>
+   <PCell parameterName="p0" df="1" beta="-7.15929939024394"/>
+   <PCell parameterName="p1" df="1" beta="-0.0000142145713726486"/>
+   <PCell parameterName="p2" df="1" beta="2.11345876623021"/>
+   <PCell parameterName="p3" df="1" beta="1.51021099205018"/>
+   <PCell parameterName="p4" df="1" beta="2.07111934944053"/>
+   <PCell parameterName="p5" df="1" beta="2.14168830849124"/>
+   <PCell parameterName="p6" df="1" beta="3.42520904828802"/>
+   <PCell parameterName="p7" df="1" beta="2.89055592227186"/>
+   <PCell parameterName="p8" df="1" beta="0.757130953440105"/>
+   <PCell parameterName="p9" df="1" beta="0.742337883590601"/>
+   <PCell parameterName="p10" df="1" beta="-0.00555742516497975"/>
+   <PCell parameterName="p11" df="1" beta="0.121912509962098"/>
+   <PCell parameterName="p12" df="1" beta="-0.0203515523415376"/>
+   <PCell parameterName="p13" df="1" beta="0.103270166260507"/>
+  </ParamMatrix>
+ </GeneralRegressionModel>
+</PMML>

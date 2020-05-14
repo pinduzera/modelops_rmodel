@@ -6,12 +6,17 @@ pipeline {
           sh 'Rscript --vanilla table_check.R'
             }
           }
-      stage('Stage 2') {
+      stage('Model Training') {
         steps {
-              echo 'Hello World'
+              Rscript --vanilla model_training.R
                 }
           }    
         
+    }
+      post { 
+        always { 
+            echo 'It's trained!'
+        }
     }
 
 }
