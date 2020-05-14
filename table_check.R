@@ -1,9 +1,9 @@
 library('swat')
 
-conn <- CAS('pdcesx16144.exnet.sas.com', port=8777,
-            # 'localhost',
+conn <- CAS(#'pdcesx16144.exnet.sas.com', port=8777, protocol = 'http',
+             'localhost',
             caslib = 'casuser', username = 'sasdemo01',
-            password = 'Orion123', protocol = "http")
+            password = 'Orion123')
 
 session_id <- cas.session.sessionId(conn)
 
