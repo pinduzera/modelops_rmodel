@@ -13,7 +13,12 @@ pipeline {
         steps {
           sh "Rscript --vanilla model_training.R"
                 }
-          }    
+          }
+      stage('Model Training') {
+        steps {
+          sh "Rscript --vanilla model_validation.R"
+                }
+          }        
         
     }
       post { 

@@ -3,10 +3,13 @@
  <Header copyright="Copyright (c) 2020 edhell" description="Generalized Linear Regression Model">
   <Extension name="user" value="edhell" extender="SoftwareAG PMML Generator"/>
   <Application name="SoftwareAG PMML Generator" version="2.3.1"/>
-  <Timestamp>2020-05-14 21:10:11</Timestamp>
+  <Timestamp>2020-05-15 14:35:48</Timestamp>
  </Header>
  <DataDictionary numberOfFields="9">
-  <DataField name="BAD" optype="continuous" dataType="double"/>
+  <DataField name="BAD" optype="categorical" dataType="string">
+   <Value value="1"/>
+   <Value value="0"/>
+  </DataField>
   <DataField name="LOAN" optype="continuous" dataType="double"/>
   <DataField name="JOB" optype="categorical" dataType="string">
    <Value value=""/>
@@ -24,7 +27,7 @@
   <DataField name="CLNO" optype="continuous" dataType="double"/>
   <DataField name="DEBTINC" optype="continuous" dataType="double"/>
  </DataDictionary>
- <GeneralRegressionModel modelName="r_logistic" modelType="generalizedLinear" functionName="regression" algorithmName="glm" distribution="binomial" linkFunction="logit">
+ <GeneralRegressionModel modelName="r_logistic" modelType="generalizedLinear" functionName="classification" algorithmName="glm" distribution="binomial" linkFunction="logit">
   <MiningSchema>
    <MiningField name="BAD" usageType="predicted" invalidValueTreatment="returnInvalid"/>
    <MiningField name="LOAN" usageType="active" invalidValueTreatment="returnInvalid"/>
@@ -37,7 +40,8 @@
    <MiningField name="DEBTINC" usageType="active" invalidValueTreatment="returnInvalid"/>
   </MiningSchema>
   <Output>
-   <OutputField name="Predicted_BAD" feature="predictedValue" optype="continuous" dataType="double"/>
+   <OutputField name="Probability_0" targetField="BAD" feature="probability" value="0" optype="continuous" dataType="double"/>
+   <OutputField name="Predicted_BAD" feature="predictedValue" optype="categorical" dataType="string"/>
   </Output>
   <ParameterList>
    <Parameter name="p0" label="(Intercept)"/>
@@ -83,20 +87,20 @@
    <PPCell value="1" predictorName="DEBTINC" parameterName="p13"/>
   </PPMatrix>
   <ParamMatrix>
-   <PCell parameterName="p0" df="1" beta="-7.15929939024394"/>
-   <PCell parameterName="p1" df="1" beta="-0.0000142145713726486"/>
-   <PCell parameterName="p2" df="1" beta="2.11345876623021"/>
-   <PCell parameterName="p3" df="1" beta="1.51021099205018"/>
-   <PCell parameterName="p4" df="1" beta="2.07111934944053"/>
-   <PCell parameterName="p5" df="1" beta="2.14168830849124"/>
-   <PCell parameterName="p6" df="1" beta="3.42520904828802"/>
-   <PCell parameterName="p7" df="1" beta="2.89055592227186"/>
-   <PCell parameterName="p8" df="1" beta="0.757130953440105"/>
-   <PCell parameterName="p9" df="1" beta="0.742337883590601"/>
-   <PCell parameterName="p10" df="1" beta="-0.00555742516497975"/>
-   <PCell parameterName="p11" df="1" beta="0.121912509962098"/>
-   <PCell parameterName="p12" df="1" beta="-0.0203515523415376"/>
-   <PCell parameterName="p13" df="1" beta="0.103270166260507"/>
+   <PCell targetCategory="0" parameterName="p0" df="1" beta="7.1592993902439"/>
+   <PCell targetCategory="0" parameterName="p1" df="1" beta="1.42145713726486e-05"/>
+   <PCell targetCategory="0" parameterName="p2" df="1" beta="-2.11345876623018"/>
+   <PCell targetCategory="0" parameterName="p3" df="1" beta="-1.51021099205015"/>
+   <PCell targetCategory="0" parameterName="p4" df="1" beta="-2.07111934944051"/>
+   <PCell targetCategory="0" parameterName="p5" df="1" beta="-2.14168830849122"/>
+   <PCell targetCategory="0" parameterName="p6" df="1" beta="-3.42520904828799"/>
+   <PCell targetCategory="0" parameterName="p7" df="1" beta="-2.89055592227184"/>
+   <PCell targetCategory="0" parameterName="p8" df="1" beta="-0.757130953440104"/>
+   <PCell targetCategory="0" parameterName="p9" df="1" beta="-0.742337883590601"/>
+   <PCell targetCategory="0" parameterName="p10" df="1" beta="0.00555742516497982"/>
+   <PCell targetCategory="0" parameterName="p11" df="1" beta="-0.121912509962097"/>
+   <PCell targetCategory="0" parameterName="p12" df="1" beta="0.0203515523415374"/>
+   <PCell targetCategory="0" parameterName="p13" df="1" beta="-0.103270166260507"/>
   </ParamMatrix>
  </GeneralRegressionModel>
 </PMML>

@@ -52,4 +52,5 @@ pem[2] <- gsub('4\\.4', '4.2', pem[2])
 pem[2] <- gsub('4_4', '4_2', pem[2])
 pem[2] <- gsub('4\\-4', '4\\-2', pem[2])
 
+saveRDS(model1, 'rlogistic.rda')
 writeLines(pem, 'model.pmml')
