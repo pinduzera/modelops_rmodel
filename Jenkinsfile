@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+  PATH = "/opt/anaconda3/bin/:$PATH"
+  }
     stages {
       stage('Check Data') {
         steps {
