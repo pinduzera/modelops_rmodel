@@ -30,7 +30,7 @@ data$BAD <- na.omit(ctbl2)$BAD
 model <- readRDS('rlogistic.rda')
 
 
-data$prediction <- predict(model, data2, type = 'response')
+data$prediction <- predict(model, data, type = 'response')
 
 ### performance
 
