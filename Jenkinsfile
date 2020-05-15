@@ -8,14 +8,14 @@ pipeline {
           }
       stage('Model Training') {
         steps {
-           sh  'Rscript --vanilla model_training.R'
+           sh 'Rscript --vanilla model_training.R'
                 }
           }    
         
     }
       post { 
         always { 
-            echo 'It's trained!'
+            echo 'Finally trained!'
         }
     }
 
