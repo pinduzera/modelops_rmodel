@@ -14,7 +14,7 @@ pipeline {
           sh "Rscript --vanilla model_training.R"
                 }
           }
-      stage('Model Training') {
+      stage('Model Validation') {
         steps {
           sh "Rscript --vanilla model_validation.R"
                 }
