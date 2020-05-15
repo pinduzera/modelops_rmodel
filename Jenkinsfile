@@ -3,12 +3,12 @@ pipeline {
     stages {
       stage('Check Data') {
         steps {
-          sh 'Rscript --vanilla table_check.R'
+          sh "Rscript --vanilla table_check.R"
             }
           }
       stage('Model Training') {
         steps {
-          sh 'Rscript --vanilla model_training.R'
+          sh "Rscript --vanilla model_training.R"
                 }
           }    
         
