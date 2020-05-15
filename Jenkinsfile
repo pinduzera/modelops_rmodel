@@ -8,7 +8,7 @@ pipeline {
           }
       stage('Model Training') {
         steps {
-              Rscript --vanilla model_training.R
+           sh  'Rscript --vanilla model_training.R'
                 }
           }    
         
