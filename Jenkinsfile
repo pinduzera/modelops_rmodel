@@ -8,14 +8,20 @@ pipeline {
           }
       stage('Model Training') {
         steps {
-           sh 'Rscript --vanilla model_training.R'
+          sh 'Rscript --vanilla model_training.R'
                 }
           }    
         
     }
       post { 
         always { 
-            echo 'Finally trained!'
+            echo 'The job is done!'
+        }
+        success {
+            echo 'Model is trained and deployed!'
+        }
+        failure {
+            echo 'Something went badly wrong!'
         }
     }
 
