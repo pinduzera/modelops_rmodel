@@ -29,7 +29,6 @@ data$BAD <- na.omit(ctbl2)$BAD
 ### read the Model, R can't read PMML easily
 model <- readRDS('rlogistic.rda')
 
-
 data$prediction <- predict(model, data, type = 'response')
 
 ### performance

@@ -6,3 +6,6 @@ modelops_rmodel.Rproj
 session_id.txt
 model.pmml
 rlogistic.rda
+.spyproject
+.model.pmml
+.rlogistic.rda

@@ -3,7 +3,7 @@
  <Header copyright="Copyright (c) 2020 edhell" description="Generalized Linear Regression Model">
   <Extension name="user" value="edhell" extender="SoftwareAG PMML Generator"/>
   <Application name="SoftwareAG PMML Generator" version="2.3.1"/>
-  <Timestamp>2020-05-15 14:35:48</Timestamp>
+  <Timestamp>2020-05-27 18:37:45</Timestamp>
  </Header>
  <DataDictionary numberOfFields="9">
   <DataField name="BAD" optype="categorical" dataType="string">
@@ -88,7 +88,7 @@
   </PPMatrix>
   <ParamMatrix>
    <PCell targetCategory="0" parameterName="p0" df="1" beta="7.1592993902439"/>
-   <PCell targetCategory="0" parameterName="p1" df="1" beta="1.42145713726486e-05"/>
+   <PCell targetCategory="0" parameterName="p1" df="1" beta="0.0000142145713726486"/>
    <PCell targetCategory="0" parameterName="p2" df="1" beta="-2.11345876623018"/>
    <PCell targetCategory="0" parameterName="p3" df="1" beta="-1.51021099205015"/>
    <PCell targetCategory="0" parameterName="p4" df="1" beta="-2.07111934944051"/>
