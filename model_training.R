@@ -10,7 +10,7 @@ conn <- CAS(
   #'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
   'localhost',
   caslib = 'casuser', username = 'sasdemo01',
-  password = 'Orion123', session =Zsession_id)
+  password = 'Orion123', session = session_id)
 
 
 ctbl <- defCasTable(conn, tablename = 'hmeq', 
