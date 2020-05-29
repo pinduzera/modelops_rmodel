@@ -7,5 +7,8 @@ session_id.txt
 model.pmml
 rlogistic.rda
 .spyproject
+<<<<<<< HEAD
 .model.pmml
 .rlogistic.rda
+=======
+>>>>>>> ff5d7b090c523568990726b04c224779ae141b5d
