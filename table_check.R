@@ -8,7 +8,7 @@ conn <- CAS(#'pdcesx16144.exnet.sas.com', port=8777, protocol = 'http',
 
 
 ### Saving session
-session_id <- cas.session.sessionId(conn)
+#session_id <- cas.session.sessionId(conn)
 
 ### increasig session timeout to 1h
 cas.sessionProp.setSessOpt(conn,
