@@ -7,13 +7,10 @@ options(scipen=999)
 session_id <- readLines('session_id.txt')
 
 conn <- CAS(
-<<<<<<< HEAD
   #'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
   'localhost',
-=======
   'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
   #'localhost',
->>>>>>> ff5d7b090c523568990726b04c224779ae141b5d
   caslib = 'casuser', username = 'sasdemo01',
   password = 'Orion123', session = session_id)
 
