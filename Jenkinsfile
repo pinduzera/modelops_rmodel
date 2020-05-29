@@ -18,7 +18,12 @@ pipeline {
         steps {
           sh "Rscript --vanilla model_validation.R"
                 }
-          }        
+          }
+      stage('Testing Score Code') {
+        steps {
+          sh "Rscript --vanilla scoreTesting.R"
+                }
+          }
         
     }
       post { 
