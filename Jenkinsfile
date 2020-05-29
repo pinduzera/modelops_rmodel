@@ -27,7 +27,8 @@ pipeline {
         
     }
       post { 
-        always { 
+        always {
+            cleanWs deleteDirs: true, notFailBuild: true
             echo 'The job is done!'
         }
         success {

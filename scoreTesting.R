@@ -24,7 +24,10 @@ if (any(!is.numeric(test_data$P_BAD0)) | any(!is.numeric(test_data$P_BAD1))){
   checks[2] <- 'ok'
 }
 
-print(test_data)
+print(head(test_data))
+
+
+print(tail(test_data))
 
 file.remove('./data/score_test.csv')
 
