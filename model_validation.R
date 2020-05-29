@@ -1,13 +1,13 @@
 library('swat')
 library('ROCR')
 
-#session_id <- readLines('session_id.txt')
+session_id <- readLines('session_id.txt')
 
 conn <- CAS(
   #'pdcesx16144.exnet.sas.com', port=8777, protocol = 'http',
   'localhost',
   caslib = 'casuser', username = 'sasdemo01',
-  password = 'Orion123')#, session = session_id)
+  password = 'Orion123', session = session_id)
 
 
 ### new DATA

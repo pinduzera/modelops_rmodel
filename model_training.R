@@ -4,15 +4,13 @@ library('pmml')
 
 options(scipen=999)
 
-#session_id <- readLines('session_id.txt')
+session_id <- readLines('session_id.txt')
 
 conn <- CAS(
   #'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
   'localhost',
-  'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
-  #'localhost',
   caslib = 'casuser', username = 'sasdemo01',
-  password = 'Orion123')
+  password = 'Orion123', session =Zsession_id)
 
 
 ctbl <- defCasTable(conn, tablename = 'hmeq', 
