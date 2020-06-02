@@ -34,7 +34,13 @@ pipeline {
           sh "python model_upload.py"
 
                 }
-          }          
+          }
+      stage('Testing Publication') {
+        steps {
+          sh "python test_pub.py"
+
+                }
+          }  
         
     }
       post { 

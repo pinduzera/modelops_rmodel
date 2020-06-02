@@ -87,6 +87,12 @@ for i in range(len(filenames['file'])):
 
 #### Publish model
 
+### need to raise exception because
+### when there is no change on the actual items
+### even if you delete the old container
+### it just restores with the older ID
+### and throws an error
+
 try:
 
     publish_model(modelname, publishdestination)
