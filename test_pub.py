@@ -52,7 +52,7 @@ print(container.attrs['Config'])
 exit_code, output = container.exec_run("ls",
                                       workdir = '/pybox/model')
 
-print('Exit code list: ' + exit_code)
+print('Exit code list: ' + str(exit_code))
 print(output.decode("utf-8"))
 
 ### There is a bug, MM has a standard _score.R file that must be
@@ -64,7 +64,7 @@ print(output.decode("utf-8"))
 
 exit_code, output = container.exec_run("cp -rf scoreCode.R _score.R", 
                                         workdir = '/pybox/model')
-print('Exit code copy: ' + exit_code)
+print('Exit code copy: ' + str(exit_code))
 print(output.decode("utf-8"))
 
 ##### Scoring
