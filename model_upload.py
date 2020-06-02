@@ -4,9 +4,10 @@ from sasctl.services import model_repository ## this is the important part
 import pandas as pd
 from pathlib import Path
 import pzmm
+import sys
 
 host = 'localhost'
-#host='pdcesx01077.exnet.sas.com'
+#host = 'rext01-0093.exnet.sas.com'
 
 publishdestination = 'localhost'
 
@@ -17,7 +18,6 @@ project_name = 'hmeq_os'
 algo = 'logistic'
 
 s = Session(host, 'sasdemo', 'Orion123', verify_ssl = False)
-
 
 ### reading data form column names
 data = pd.read_csv('./data/hmeq_score.csv', nrows = 5)
@@ -66,8 +66,8 @@ model_repository.create_model(model = modelname,
 
 #### basic files
 
-filenames = {'file':['inputVar.json','outputVar.json','scoreCode.R',
-                      'model_training.R','rlogistic.rda', 'model.pmml'],
+filenames = {'file':['inputVar.json','outputVar.json','scoreCode.r',
+                      'model_training.r','rlogistic.rda', 'model.pmml'],
             'role':['input','output', 'score', 'train', 'resource', 'PMML']}
             
 #### uploading files
@@ -87,4 +87,17 @@ for i in range(len(filenames['file'])):
 
 #### Publish model
 
-publish_model(modelname, publishdestination)
+try:
+
+    publish_model(modelname, publishdestination)
+
+except RuntimeError as e:
+    
+    result = e.find('The image already exists')
+    
+    if result != -1:
+        print('The image already exists, probably no change for new version')
+    else:
+        print('Another error, check logs')
+        sys.exit(1)
+        
