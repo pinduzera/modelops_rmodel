@@ -41,7 +41,8 @@ print('Running new container')
 
 container = client.containers.run('127.0.0.1:5000/'+modelname,
                                  ports = {'8080/tcp':str(free_port)},
-                                 name = modelname)
+                                 name = modelname,
+                                 detach = True)
 ### container info
 
 print(container.attrs['Config'])
@@ -61,11 +62,16 @@ print(output.decode("utf-8"))
 ### it's an workaround for first deployment
 ### not very reliable yet
 
-exit_code, output = container.exec_run("cp -rf scoreCode.R _score.R", 
+exit_code, output = container.exec_run("cp scoreCode.R _score.R", 
                                         workdir = '/pybox/model')
+
 print('Exit code copy: ' + str(exit_code))
 print(output.decode("utf-8"))
 
+exit_code, output = container.exec_run("cat _score.R",
+                                      workdir = '/pybox/model')
+
+print(output.decode("utf-8"))
 ##### Scoring
 
 import requests
