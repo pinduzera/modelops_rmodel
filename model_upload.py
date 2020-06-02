@@ -66,8 +66,8 @@ model_repository.create_model(model = modelname,
 
 #### basic files
 
-filenames = {'file':['inputVar.json','outputVar.json','scoreCode.r',
-                      'model_training.r','rlogistic.rda', 'model.pmml'],
+filenames = {'file':['inputVar.json','outputVar.json','scoreCode.R',
+                      'model_training.R','rlogistic.rda', 'model.pmml'],
             'role':['input','output', 'score', 'train', 'resource', 'PMML']}
             
 #### uploading files
