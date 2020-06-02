@@ -91,9 +91,9 @@ try:
 
     publish_model(modelname, publishdestination)
 
-except RuntimeError as e:
+except Exception as e:
     
-    result = e.find('The image already exists')
+    result = str(e).find('The image already exists')
     
     if result != -1:
         print('The image already exists, probably no change for new version')
