@@ -2,6 +2,7 @@ import docker
 import socket
 from contextlib import closing
 import sys
+import time
 
 ### defining function to find free port
 def find_free_port():
@@ -43,6 +44,12 @@ container = client.containers.run('127.0.0.1:5000/'+modelname,
                                  ports = {'8080/tcp':str(free_port)},
                                  name = modelname,
                                  detach = True)
+
+### otherwise it will
+### try to copy the files before the
+### container is actually ready
+time.sleep(2)
+
 ### container info
 
 print(container.attrs['Config'])
@@ -62,7 +69,7 @@ print(output.decode("utf-8"))
 ### it's an workaround for first deployment
 ### not very reliable yet
 
-exit_code, output = container.exec_run("cd /pybox/model ; cp scoreCode.R _score.R", 
+exit_code, output = container.exec_run("cp scoreCode.R _score.R", 
                                         workdir = '/pybox/model')
 
 print('Exit code copy: ' + str(exit_code))
