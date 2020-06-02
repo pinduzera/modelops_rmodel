@@ -62,7 +62,7 @@ print(output.decode("utf-8"))
 ### it's an workaround for first deployment
 ### not very reliable yet
 
-exit_code, output = container.exec_run("cp scoreCode.R _score.R", 
+exit_code, output = container.exec_run("cd /pybox/model ; cp scoreCode.R _score.R", 
                                         workdir = '/pybox/model')
 
 print('Exit code copy: ' + str(exit_code))
