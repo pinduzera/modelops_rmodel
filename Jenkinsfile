@@ -26,7 +26,7 @@ pipeline {
           }
       stage('Model Upload & publish') {
         steps {
-          sh "python modelupload.py"
+          sh "python model_upload.py"
 
                 }
           }          
