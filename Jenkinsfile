@@ -24,6 +24,12 @@ pipeline {
           sh "Rscript --vanilla scoreTesting.R"
                 }
           }
+      stage('Model Upload & publish') {
+        steps {
+          sh "python modelupload.py"
+
+                }
+          }          
         
     }
       post { 

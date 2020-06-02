@@ -9,3 +9,5 @@ rlogistic.rda
 .spyproject
 .model.pmml
 .rlogistic.rda
+outputVar.json
+inputVar.json
