@@ -48,7 +48,8 @@ JSONFiles.writeVarJSON(inputs, isInput=True, jPath=path)
 JSONFiles.writeVarJSON(outputs, isInput=False, jPath=path)
 
 ### Creating 
-#model_repository.delete_model('R_auto_docker')
+### don't use this in the real world
+model_repository.delete_model('R_auto_docker')
 
 model_repository.create_model(model = modelname,
                              project = project_name,

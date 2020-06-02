@@ -3,6 +3,11 @@ pipeline {
   environment {
   PATH = "/opt/anaconda3/bin/:$PATH"
   }
+  
+    options {
+        timeout(time: 15, unit: 'MINUTES')   // timeout on whole pipeline job
+    }
+
     stages {
       stage('Check Data') {
         steps {
