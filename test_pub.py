@@ -37,22 +37,22 @@ except:
 #### Run the container
 ### here you can setup container limitations
 ### such as CPU usage
+print('Running new container')
 
 container = client.containers.run('127.0.0.1:5000/'+modelname,
                                       detach=True,
                                  ports = {'8080/tcp':str(free_port)},
                                  name = modelname)
-container.logs()
-
 ### container info
 
-container.attrs['Config']
+print(container.attrs['Config'])
 
 
 #### container model folders
 exit_code, output = container.exec_run("ls",
                                       workdir = '/pybox/model')
 
+print('Exit code list: ' + exit_code)
 print(output.decode("utf-8"))
 
 ### There is a bug, MM has a standard _score.R file that must be
@@ -62,8 +62,10 @@ print(output.decode("utf-8"))
 ### it's an workaround for first deployment
 ### not very reliable yet
 
-exit_code, output = container.exec_run("cp -rf scoreCode.R _score.R",
-                                      workdir = '/pybox/model')
+exit_code, output = container.exec_run("cp -rf scoreCode.R _score.R", 
+                                        workdir = '/pybox/model')
+print('Exit code copy: ' + exit_code)
+print(output.decode("utf-8"))
 
 ##### Scoring
 
