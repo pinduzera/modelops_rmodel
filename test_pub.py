@@ -24,10 +24,15 @@ client = docker.DockerClient(base_url='tcp://localhost:2375')
 free_port = find_free_port()
 
 ### delete old container of same same
-old_con = client.containers.get(modelname)
-old_con.stop()
-old_con.remove()
-
+try:
+  old_con = client.containers.get(modelname)
+  old_con.stop()
+  old_con.remove()
+  print('Deleted old container with the same name')
+except:
+  print('No container has been removed')
+  pass
+  
 #### Run the container
 ### here you can setup container limitations
 ### such as CPU usage
