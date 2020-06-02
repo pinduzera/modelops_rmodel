@@ -79,8 +79,7 @@ for i in range(len(filenames['file'])):
                       model = modelname, 
                       file = _file, 
                       name = filenames['file'][i], 
-                      role= filenames['role'][i], 
-                      content_type=None)
+                      role= filenames['role'][i])
         
         print('uploaded ' + filenames['file'][i] + ' as ' + filenames['role'][i])
         _file.close()
