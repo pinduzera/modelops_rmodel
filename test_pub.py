@@ -40,7 +40,6 @@ except:
 print('Running new container')
 
 container = client.containers.run('127.0.0.1:5000/'+modelname,
-                                      detach=True,
                                  ports = {'8080/tcp':str(free_port)},
                                  name = modelname)
 ### container info
