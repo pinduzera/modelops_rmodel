@@ -1,6 +1,7 @@
 import docker
 import socket
 from contextlib import closing
+import sys
 
 ### defining function to find free port
 def find_free_port():
@@ -61,7 +62,7 @@ print(output.decode("utf-8"))
 ### it's an workaround for first deployment
 ### not very reliable yet
 
-exit_code, output = container.exec_run("cp scoreCode.R _score.R",
+exit_code, output = container.exec_run("cp -rf scoreCode.R _score.R",
                                       workdir = '/pybox/model')
 
 ##### Scoring
