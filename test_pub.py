@@ -23,6 +23,11 @@ client = docker.DockerClient(base_url='tcp://localhost:2375')
 
 free_port = find_free_port()
 
+### delete old container of same same
+old_con = client.containers.get(modelname)
+old_con.stop()
+old_con.remove()
+
 #### Run the container
 ### here you can setup container limitations
 ### such as CPU usage
