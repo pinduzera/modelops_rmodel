@@ -19,7 +19,7 @@ if (ncol(test_data) < 15){
 
 if (any(!is.numeric(test_data$P_BAD0)) | any(!is.numeric(test_data$P_BAD1))){
   checks[2] <- 'notok'
-  print('Output error, not a numberin the columns prediction')
+  print('Output error, not a number in the columns prediction')
 } else {
   checks[2] <- 'ok'
 }

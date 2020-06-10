@@ -9,7 +9,7 @@ import sys
 host = 'localhost'
 #host = 'rext01-0093.exnet.sas.com'
 
-publishdestination = 'localhost'
+publishdestination = 'localdocker'
 
 modelname = 'R_auto_docker'
 
@@ -21,9 +21,6 @@ s = Session(host, 'sasdemo', 'Orion123', verify_ssl = False)
 
 ### reading data form column names
 data = pd.read_csv('./data/hmeq_score.csv', nrows = 5)
-
-
-inputData = pd.read_csv(('./data/hmeq_score.csv'))
                         
 ### list inputs and outputs
 inputs = data[0:3].drop(['BAD'], axis=1)
@@ -49,9 +46,13 @@ JSONFiles.writeVarJSON(outputs, isInput=False, jPath=path)
 
 ### Creating 
 ### don't use this in the real world
-model_repository.delete_model('R_auto_docker')
+#model_repository.delete_model(modelname)
+model_exists = model_repository.get_model(modelname, refresh=False)
 
-model_repository.create_model(model = modelname,
+#model_repository.delete_model(modelname)
+if model_exists == None:
+    print('Creating new model')
+    model_repository.create_model(model = modelname,
                              project = project_name,
                              description = 'My Jenkings automatized',
                              modeler = 'Hellas',
@@ -62,6 +63,12 @@ model_repository.create_model(model = modelname,
                              is_champion=False,
                              is_challenger=True,
                              event_prob_variable ='P_BAD1')
+else:
+    print('Model exists, creting new verision')
+    model_repository.create_model_version(
+        model = modelname
+    )
+
 
 
 #### basic files
