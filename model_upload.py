@@ -46,13 +46,13 @@ JSONFiles.writeVarJSON(outputs, isInput=False, jPath=path)
 
 ### Creating 
 ### don't use this in the real world
-#model_repository.delete_model(modelname)
-model_exists = model_repository.get_model(modelname, refresh=False)
+model_repository.delete_model(modelname)
+#model_exists = model_repository.get_model(modelname, refresh=False)
 
-#model_repository.delete_model(modelname)
-if model_exists == None:
-    print('Creating new model')
-    model_repository.create_model(model = modelname,
+# #model_repository.delete_model(modelname)
+# if model_exists == None:
+#     print('Creating new model')
+model_repository.create_model(model = modelname,
                              project = project_name,
                              description = 'My Jenkings automatized',
                              modeler = 'Hellas',
@@ -63,11 +63,11 @@ if model_exists == None:
                              is_champion=False,
                              is_challenger=True,
                              event_prob_variable ='P_BAD1')
-else:
-    print('Model exists, creting new verision')
-    model_repository.create_model_version(
-        model = modelname
-    )
+# else:
+#     print('Model exists, creting new verision')
+#     model_repository.create_model_version(
+#         model = modelname
+#     )
 
 
 
