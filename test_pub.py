@@ -12,7 +12,7 @@ def find_free_port():
         return s.getsockname()[1]
 
 ### model and host options
-modelname = 'r_auto_docker'
+modelname = 'r_auto_docker' ## all must be small
 
 client = docker.DockerClient(base_url='tcp://localhost:2375')
 
@@ -38,7 +38,7 @@ except:
 #### Run the container
 ### here you can setup container limitations
 ### such as CPU usage
-print('Running new container')
+print('Running new container in port:' + str(free_port) )
 
 container = client.containers.run('127.0.0.1:5000/'+modelname,
                                  ports = {'8080/tcp':str(free_port)},
@@ -48,7 +48,7 @@ container = client.containers.run('127.0.0.1:5000/'+modelname,
 ### otherwise it will
 ### try to copy the files before the
 ### container is actually ready
-time.sleep(2)
+time.sleep(10)
 
 ### container info
 
