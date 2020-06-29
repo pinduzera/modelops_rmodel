@@ -38,7 +38,8 @@ for(key in 1:length(tables)){
                  paste0('./data/', names(tables[key]), '.csv'),
                  casOut = list(name = names(tables[key]),
                                caslib = 'public',
-                               promote = TRUE))
+                               promote = TRUE),
+                 na.strings = '           .')
     })
     
     
