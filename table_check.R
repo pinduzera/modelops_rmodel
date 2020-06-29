@@ -28,6 +28,31 @@ tables[i] <-  cas.table.tableExists(conn, caslib= 'public',
                         name= i )$exists
 }
 
+for(key in 1:nrow(tables)){
+  
+  if(table[key] != 2){
+    print(paste0('uploading table: ', names(tables[key])))
+    
+    x <- try({
+    cas.read.csv(conn, 
+                 paste0('./data/', names(tables[key]), '.csv'),
+                 casOut = list(name = names(tables[key]),
+                               caslib = 'public',
+                               promote = TRUE))
+    }
+    
+    
+    if (class(x) == "try-error"){
+      tables[key] <- 1
+    } else{
+      tables[key] <- 2
+    }
+    
+    )
+  }
+    
+}
+
 exists <- tables %in% 2
 
 
