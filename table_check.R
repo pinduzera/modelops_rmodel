@@ -30,7 +30,7 @@ tables[i] <-  cas.table.tableExists(conn, caslib= 'public',
 
 for(key in 1:length(tables)){
   
-  if (table[key] != 2){
+  if (tables[key] != 2){
     print(paste0('uploading table: ', names(tables[key])))
     
     x <- try({
