@@ -17,7 +17,7 @@ project_name = 'hmeq_os'
 
 algo = 'logistic'
 
-s = Session(host, 'sasdemo', 'Orion123', verify_ssl = False)
+s = Session(host, 'username', 'password', verify_ssl = False)
 
 ### reading data form column names
 data = pd.read_csv('./data/hmeq_score.csv', nrows = 5)
