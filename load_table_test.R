@@ -1,10 +1,10 @@
 library('swat')
 
 ### Connections
-conn <- CAS(#'pdcesx16144.exnet.sas.com', port=8777, protocol = 'http',
-  'pdcesx05173.exnet.sas.com', port=8777, protocol = 'http',
-  caslib = 'Public', username = 'sasdemo',
-  password = 'Orion123')
+conn <- CAS(#'hostname.com', port=8777, protocol = 'http',
+  'hostname.com', port=8777, protocol = 'http',
+  caslib = 'Public', username = 'username',
+  password = 's3cr3t!')
 
 tablenames <- c('hmeq', 
                 'hmeqpr_1_1q', 'hmeqpr_2_2q',

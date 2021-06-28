@@ -7,7 +7,7 @@ import pzmm
 import sys
 
 host = 'localhost'
-#host = 'rext01-0093.exnet.sas.com'
+#host = 'hostname.com'
 
 publishdestination = 'localdocker'
 

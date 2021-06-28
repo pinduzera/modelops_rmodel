@@ -7,10 +7,10 @@ options(scipen=999)
 session_id <- readLines('session_id.txt')
 
 conn <- CAS(
-  #'pdcesx06125.exnet.sas.com', port=8777, protocol = 'http',
+  #'hostname.com', port=8777, protocol = 'http',
   'localhost',
-  caslib = 'casuser', username = 'sasdemo01',
-  password = 'Orion123', session = session_id)
+  caslib = 'casuser', username = 'username01',
+  password = 's3cr3t!', session = session_id)
 
 
 ctbl <- defCasTable(conn, tablename = 'hmeq', 
